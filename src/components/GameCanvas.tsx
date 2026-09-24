@@ -329,7 +329,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
             SPACE / TAP
           </span>
           <span className="text-sm font-semibold">
-            {activeLockerId ? 'Exit Locker (बाहर निकलें)' : 'Hide in Locker (लॉकर में छुपें)'}
+            {activeLockerId ? 'Exit Locker (Bahar Niklein)' : 'Hide in Locker (Locker mein Chupein)'}
           </span>
         </div>
       )}
@@ -515,7 +515,7 @@ function drawRescueCage(ctx: CanvasRenderingContext2D, cage: RescueCage, animTim
   ctx.fillStyle = '#f87171';
   ctx.font = 'bold 11px Plus Jakarta Sans, sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('RESCUE CAGE (बचाव पिंजरा)', cage.x + cage.width / 2, cage.y - 10);
+  ctx.fillText('RESCUE CAGE (Bachao Pinjra)', cage.x + cage.width / 2, cage.y - 10);
 
   // Unlocking ring if being rescued
   if (cage.unlockProgress > 0) {

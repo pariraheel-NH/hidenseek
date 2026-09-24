@@ -27,7 +27,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
   const [playerName, setPlayerName] = useState('Player 1');
   const [difficulty, setDifficulty] = useState<Difficulty>('NORMAL');
 
-  const isHindi = language === 'hi';
+  const isUrdu = language !== 'en';
 
   const handleStart = () => {
     sounds.playClick();
@@ -56,7 +56,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
               HIDE & SEEK
             </span>
             <span className="text-xs text-slate-400 border-l border-slate-700 pl-3">
-              {isHindi ? '10 खिलाड़ियों का अस्तित्व खेल' : '10-Player Stealth Survival'}
+              {isUrdu ? '10 Khilariyon ka Survival Game' : '10-Player Stealth Survival'}
             </span>
           </div>
 
@@ -65,7 +65,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
               onClick={onToggleLanguage}
               className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
             >
-              {isHindi ? 'English' : 'हिंदी (Hindi)'}
+              {isUrdu ? 'English' : 'Roman Urdu'}
             </button>
             <button
               onClick={onToggleSound}
@@ -80,11 +80,11 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
         {/* Hero Concept Banner */}
         <div className="flex flex-col gap-2">
           <h1 className="text-3xl md:text-4xl font-black font-display tracking-tight text-white">
-            {isHindi ? 'लुका छुपी: 10 खिलाड़ी, 1 किलर' : 'Hide and Seek: 10 Players, 1 Killer'}
+            {isUrdu ? 'Chupan Chupai: 10 Khilari, 1 Killer' : 'Hide and Seek: 10 Players, 1 Killer'}
           </h1>
           <p className="text-sm md:text-base text-slate-300 leading-relaxed max-w-2xl">
-            {isHindi
-              ? 'इस खेल में कुल 10 लोग होंगे: 1 Killer (जिसके सिर के ऊपर "KILLER" लिखा होगा) और 9 छुपने वाले। अपनी भूमिका चुनें और जीवित रहें!'
+            {isUrdu
+              ? 'Is game mein kul 10 log honge: 1 Killer (jiske sar ke upar "KILLER" likha hoga) aur 9 chupne wale. Apna kirdar chunein aur zinda rahein!'
               : 'Match consists of exactly 10 players: 1 Killer (with "KILLER" written boldly over their head!) and 9 Hiders sneaking through mansion corridors, bushes, and lockers.'}
           </p>
         </div>
@@ -94,10 +94,10 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
           <span className="text-2xl">☠</span>
           <div>
             <span className="font-bold text-red-400">
-              {isHindi ? 'मुख्य नियम:' : 'Core Rule:'}
+              {isUrdu ? 'Asal Usool:' : 'Core Rule:'}
             </span>{' '}
-            {isHindi
-              ? 'जो Killer होगा, उसके सिर के ऊपर लाल रंग में "KILLER" लिखा दिखाई देगा ताकि आप उसे दूर से पहचान सकें!'
+            {isUrdu
+              ? 'Jo Killer hoga, uske sar ke upar laal rang mein "KILLER" likha nazar aayega taake aap use door se pehchan saken!'
               : 'Whoever is the Killer has "KILLER" written prominently in glowing red above their head so everyone can identify the danger!'}
           </div>
         </div>
@@ -107,7 +107,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
           {/* Role Selection */}
           <div className="flex flex-col gap-3">
             <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-              {isHindi ? 'अपनी भूमिका चुनें (Select Your Role)' : 'Select Your Role'}
+              {isUrdu ? 'Apna Kirdar Chunein (Select Your Role)' : 'Select Your Role'}
             </label>
             <div className="grid grid-cols-2 gap-3">
               {/* Play as Hider */}
@@ -128,11 +128,11 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
                 </div>
                 <div>
                   <div className="font-bold text-sm">
-                    {isHindi ? 'HIDER (छुपने वाला)' : 'PLAY AS HIDER'}
+                    {isUrdu ? 'HIDER (Chupne Wala)' : 'PLAY AS HIDER'}
                   </div>
                   <div className="text-[11px] text-slate-400 mt-1">
-                    {isHindi
-                      ? 'Killer से छुपें, झाड़ियों व लॉकर का उपयोग करें'
+                    {isUrdu
+                      ? 'Killer se chupein, jhariyon aur locker ka istemal karein'
                       : 'Evade Killer, hide in bushes & lockers'}
                   </div>
                 </div>
@@ -156,11 +156,11 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
                 </div>
                 <div>
                   <div className="font-bold text-sm">
-                    {isHindi ? 'KILLER (हत्यारा)' : 'PLAY AS KILLER'}
+                    {isUrdu ? 'KILLER (Qaatil)' : 'PLAY AS KILLER'}
                   </div>
                   <div className="text-[11px] text-slate-400 mt-1">
-                    {isHindi
-                      ? 'सिर पर "KILLER" बैज लेकर 9 लोगों को पकड़ें'
+                    {isUrdu
+                      ? 'Sar par "KILLER" badge laga kar 9 logon ko pakrein'
                       : 'Hunt down all 9 Hiders with KILLER badge'}
                   </div>
                 </div>
@@ -174,7 +174,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
             <div className="flex flex-col gap-1.5">
               <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
                 <User className="w-3.5 h-3.5" />
-                {isHindi ? 'आपका नाम (Your Name)' : 'Your Name'}
+                {isUrdu ? 'Aap ka Naam (Your Name)' : 'Your Name'}
               </label>
               <input
                 type="text"
@@ -189,7 +189,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
             {/* Difficulty */}
             <div className="flex flex-col gap-1.5">
               <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                {isHindi ? 'कठिनाई स्तर (Difficulty)' : 'Difficulty Level'}
+                {isUrdu ? 'Mushkil ka Darja (Difficulty)' : 'Difficulty Level'}
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {(['EASY', 'NORMAL', 'NIGHTMARE'] as Difficulty[]).map((level) => (
@@ -252,7 +252,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
           className="w-full py-4 rounded-xl font-display font-black text-lg md:text-xl tracking-wider text-white bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:from-red-500 hover:to-red-600 shadow-xl shadow-red-950/80 border border-red-500/50 flex items-center justify-center gap-3 transition-transform active:scale-[0.99] cursor-pointer"
         >
           <Play className="w-5 h-5 fill-white" />
-          <span>{isHindi ? 'खेल शुरू करें (START GAME)' : 'START GAME'}</span>
+          <span>{isUrdu ? 'Game Shuru Karein (START GAME)' : 'START GAME'}</span>
           <Sparkles className="w-4 h-4 text-amber-300" />
         </button>
       </div>

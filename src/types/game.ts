@@ -9,7 +9,7 @@ export type GameStatus = 'TITLE_MENU' | 'PLAYING' | 'PAUSED' | 'GAME_OVER';
 
 export type Difficulty = 'EASY' | 'NORMAL' | 'NIGHTMARE';
 
-export type Language = 'en' | 'hi';
+export type Language = 'en' | 'ur';
 
 export interface Player {
   id: string;

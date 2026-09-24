@@ -31,7 +31,7 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
   onReturnToMenu,
   language,
 }) => {
-  const isHindi = language === 'hi';
+  const isUrdu = language !== 'en';
 
   const mins = Math.floor(timeSurvived / 60);
   const secs = Math.floor(timeSurvived % 60);
@@ -57,28 +57,28 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
         <div className="flex flex-col gap-1.5">
           <h2 className="text-3xl font-black font-display tracking-wide text-white">
             {isVictory
-              ? isHindi
-                ? 'विजय! (VICTORY)'
+              ? isUrdu
+                ? 'Fateh! (VICTORY)'
                 : 'VICTORY!'
-              : isHindi
-              ? 'हार! (DEFEAT)'
+              : isUrdu
+              ? 'Haar! (DEFEAT)'
               : 'GAME OVER'}
           </h2>
           <p className="text-sm text-slate-300">
             {userRole === 'KILLER'
               ? isVictory
-                ? isHindi
-                  ? 'शाबाश! आपने सभी 9 छुपने वालों को ढूंढ कर पकड़ लिया!'
+                ? isUrdu
+                  ? 'Shabash! Aap ne tamam 9 chupne walon ko dhoond kar pakar liya!'
                   : 'Brilliant hunting! You eliminated all 9 Hiders before time ran out.'
-                : isHindi
-                ? 'समय समाप्त! कुछ छुपने वाले बच निकलने में सफल रहे।'
+                : isUrdu
+                ? 'Waqt khatam! Kuch chupne wale bach niklne mein kamyab rahe.'
                 : 'Time expired! Some hiders managed to stay hidden and survived.'
               : isVictory
-              ? isHindi
-                ? 'अद्भुत! आप 120 सेकंड तक KILLER से बचकर जीवित रहे!'
+              ? isUrdu
+                ? 'Kamaal! Aap 120 second tak KILLER se bach kar zinda rahe!'
                 : 'Incredible stealth! You survived the full duration against the KILLER.'
-              : isHindi
-              ? 'ओह! KILLER ने आपको पकड़ लिया और पिंजरे में डाल दिया।'
+              : isUrdu
+              ? 'Afsos! KILLER ne aap ko pakar liya aur pinjre mein daal diya.'
               : 'The KILLER hunted you down and threw you in the cage!'}
           </p>
         </div>
@@ -87,7 +87,7 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
         <div className="grid grid-cols-3 gap-2 bg-slate-950/60 border border-slate-800 rounded-xl p-3 text-slate-300">
           <div className="flex flex-col items-center">
             <span className="text-[11px] text-slate-500 uppercase font-semibold">
-              {isHindi ? 'पकड़े गए' : 'Caught'}
+              {isUrdu ? 'Pakre Gaye' : 'Caught'}
             </span>
             <span className="font-mono text-lg font-bold text-white tabular-nums">
               {caughtCount}/{totalHiders}
@@ -96,7 +96,7 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
 
           <div className="flex flex-col items-center border-x border-slate-800">
             <span className="text-[11px] text-slate-500 uppercase font-semibold">
-              {isHindi ? 'समय' : 'Time'}
+              {isUrdu ? 'Waqt' : 'Time'}
             </span>
             <span className="font-mono text-lg font-bold text-white tabular-nums">
               {timeFormatted}
@@ -105,7 +105,7 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
 
           <div className="flex flex-col items-center">
             <span className="text-[11px] text-slate-500 uppercase font-semibold">
-              {isHindi ? 'बचाव' : 'Rescues'}
+              {isUrdu ? 'Bachao' : 'Rescues'}
             </span>
             <span className="font-mono text-lg font-bold text-white tabular-nums">
               {rescuesCount}
@@ -123,7 +123,7 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
             className="flex-1 py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white shadow-lg shadow-red-950/50 flex items-center justify-center gap-2 cursor-pointer transition-transform active:scale-98 whitespace-nowrap"
           >
             <RotateCcw className="w-4 h-4" />
-            <span>{isHindi ? 'फिर से खेलें (Play Again)' : 'Play Again'}</span>
+            <span>{isUrdu ? 'Dobara Khelein (Play Again)' : 'Play Again'}</span>
           </button>
 
           <button
@@ -134,7 +134,7 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
             className="py-3 px-4 rounded-xl font-bold text-sm bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center justify-center gap-2 cursor-pointer transition-colors whitespace-nowrap"
           >
             <Home className="w-4 h-4" />
-            <span>{isHindi ? 'मुख्य मेनू' : 'Main Menu'}</span>
+            <span>{isUrdu ? 'Main Menu' : 'Main Menu'}</span>
           </button>
         </div>
       </div>

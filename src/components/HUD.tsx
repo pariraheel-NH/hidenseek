@@ -44,7 +44,7 @@ export const HUD: React.FC<HUDProps> = ({
   const seconds = Math.floor(timeRemaining % 60);
   const timeFormatted = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-  const isHindi = language === 'hi';
+  const isUrdu = language !== 'en';
 
   // Killer closeness alert
   const isKillerClose = userRole === 'HIDER' && killerDistance < 350;
@@ -60,7 +60,7 @@ export const HUD: React.FC<HUDProps> = ({
               HIDE & SEEK
             </span>
             <span className="text-xs text-slate-400 hidden sm:inline">
-              {isHindi ? '10 खिलाड़ी अस्तित्व खेल' : '10-Player Survival'}
+              {isUrdu ? '10 Khilari Survival Game' : '10-Player Survival'}
             </span>
           </div>
 
@@ -93,14 +93,14 @@ export const HUD: React.FC<HUDProps> = ({
           <div className="hidden lg:flex items-center gap-2 text-xs text-slate-300">
             {userRole === 'KILLER' ? (
               <span>
-                {isHindi
-                  ? `सभी 9 छुपने वालों को पकड़ें! (${caughtCount}/9 पकड़े गए)`
+                {isUrdu
+                  ? `Tamam 9 chupne walon ko pakrein! (${caughtCount}/9 pakre gaye)`
                   : `Hunt all 9 Hiders! (${caughtCount}/9 Caught)`}
               </span>
             ) : (
               <span>
-                {isHindi
-                  ? `समय समाप्त होने तक जीवित रहें! (${aliveCount}/9 जीवित)`
+                {isUrdu
+                  ? `Waqt khatam hone tak zinda rahein! (${aliveCount}/9 zinda)`
                   : `Survive until time expires! (${aliveCount}/9 Free)`}
               </span>
             )}
@@ -123,23 +123,23 @@ export const HUD: React.FC<HUDProps> = ({
               </span>
               <span className="hidden sm:inline font-mono">
                 {isKillerClose
-                  ? isHindi
-                    ? 'खतरा! KILLER पास है!'
+                  ? isUrdu
+                    ? 'Khatra! KILLER qareeb hai!'
                     : 'DANGER! KILLER NEAR!'
-                  : isHindi
-                  ? 'सुरक्षित'
+                  : isUrdu
+                  ? 'Mehfooz'
                   : 'SAFE'}
               </span>
             </div>
           )}
 
-          {/* Hindi / English Toggle */}
+          {/* Roman Urdu / English Toggle */}
           <button
             onClick={onToggleLanguage}
             title="Toggle Language"
             className="px-2 py-1 text-xs font-bold rounded-md bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-colors"
           >
-            {language.toUpperCase()}
+            {isUrdu ? 'UR' : 'EN'}
           </button>
 
           {/* Sound Toggle */}
@@ -186,7 +186,7 @@ export const HUD: React.FC<HUDProps> = ({
               )}
             </div>
             <span className="text-xs text-slate-400 tabular-nums">
-              {caughtCount}/9 {isHindi ? 'शिकार' : 'Caught'}
+              {caughtCount}/9 {isUrdu ? 'Shikar' : 'Caught'}
             </span>
           </div>
         )}
@@ -194,7 +194,7 @@ export const HUD: React.FC<HUDProps> = ({
         {/* 9 Hiders Status Badges */}
         <div className="flex items-center gap-2 overflow-x-auto py-0.5">
           <span className="text-[11px] text-slate-500 uppercase font-semibold shrink-0">
-            {isHindi ? 'छुपने वाले (9):' : 'Hiders (9):'}
+            {isUrdu ? 'Chupne wale (9):' : 'Hiders (9):'}
           </span>
           {hiders.map((hider, idx) => (
             <div
