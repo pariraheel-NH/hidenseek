@@ -1,0 +1,6 @@
+{
+  "name": "Hide and Seek",
+  "description": "An intense 10-player Hide and Seek game with 1 Killer and 9 Hiders featuring stealth hiding mechanics, dynamic vision cones, and audio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
