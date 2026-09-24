@@ -27,7 +27,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
   const [playerName, setPlayerName] = useState('Player 1');
   const [difficulty, setDifficulty] = useState<Difficulty>('NORMAL');
 
-  const isUrdu = language === 'ur';
+  const isUrdu = language !== 'en';
 
   const handleStart = () => {
     sounds.playClick();

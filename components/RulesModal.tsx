@@ -14,7 +14,7 @@ interface RulesModalProps {
 }
 
 export const RulesModal: React.FC<RulesModalProps> = ({ onClose, language }) => {
-  const isUrdu = language === 'ur';
+  const isUrdu = language !== 'en';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-in fade-in duration-200">

@@ -31,7 +31,7 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
   onReturnToMenu,
   language,
 }) => {
-  const isUrdu = language === 'ur';
+  const isUrdu = language !== 'en';
 
   const mins = Math.floor(timeSurvived / 60);
   const secs = Math.floor(timeSurvived % 60);

@@ -44,7 +44,7 @@ export const HUD: React.FC<HUDProps> = ({
   const seconds = Math.floor(timeRemaining % 60);
   const timeFormatted = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-  const isUrdu = language === 'ur';
+  const isUrdu = language !== 'en';
 
   // Killer closeness alert
   const isKillerClose = userRole === 'HIDER' && killerDistance < 350;
@@ -139,7 +139,7 @@ export const HUD: React.FC<HUDProps> = ({
             title="Toggle Language"
             className="px-2 py-1 text-xs font-bold rounded-md bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-colors"
           >
-            {language.toUpperCase()}
+            {isUrdu ? 'UR' : 'EN'}
           </button>
 
           {/* Sound Toggle */}
